@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngày Nhà giáo Việt Nam 20/11</title>
+    <style>
+        .gift-box {
+            text-align: center;
+            font-size: 550px;
+        }
+        h1 {
+            color: #FFDD4A;font-family: Bookman; font-size: 60px;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        h3 {
+            color: #4B7447; font-family: Bookman; font-size; 30px;
+        }
+        h2 {
+            font-size: 40px;
+        }
+        h4 {
+            color: white; font-family: Bookman;
+        }
+        .khungngoai {
+            border: groove; /*kiểu đường viền*/
+            padding: 50px; /*khoảng cách của văn bản tới cạnh*/
+            margin-bottom: 30px; /*lề dưới của 2 khung*/
+            background-color: #4B7447;
+            border-radius: 10px;
+            width: 93%;
+            margin: 20px auto;
+        }
+        .khungtrong {
+            border: groove; /*kiểu đường viền*/
+            padding: 10px; /*khoảng cách của văn bản tới cạnh*/
+            margin-bottom: 10px; /*lề dưới của 2 khung*/
+            width:60%;
+            background-color: #F7F6E7;
+            font-size: 25px;
+            border-radius: 10px;
+        }
+        .content-border {
+            border: groove; 
+            padding: 10px; 
+            margin-bottom: 10px;
+            border-color: white;
+        }
+        .content-container {
+            display: none;
+            text-align: center;
+        }
+        .layout { 
+            display: flex; 
+            gap: 80px; 
+        }
+        .ganh, .gvideo, .layoutphoto, .layoutvideo { 
+            width: 50%; 
+        }
+        .layoutphoto { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 10px; 
+        }
+        .layoutphoto img { 
+            width: 100%; 
+            border-radius: 8px; 
+        }
+        .gift { 
+            position: absolute; 
+            color: red; top: -50px; 
+            animation: fall linear forwards; 
+            z-index: 1; 
+        }
+        .form-container {
+            margin: 5px auto;
+            padding: 3px 9px 9px 5px;
+            background-color: #486B00;
+            border: groove;
+        }
+        .form-group {
+            display: flex;
+            align-items: flex-end; /*căn dưới*/
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 1px 3px;
+            background-color: #ccc;
+            display: block;
+        }
+        button:hover {
+            background-color: #bbb;
+        }
+        @keyframes fall { 
+            0% { opacity: 1; } 
+            100% { transform: translateY(100vh); opacity: 0; } 
+        }
+        @keyframes soft-shake { 
+            0%, 100% { transform: rotate(0deg); } 
+            25% { transform: rotate(-5deg); } 
+            50% { transform: rotate(5deg); } 
+            75% { transform: rotate(-3deg); } 
+        }
+        .header {
+            background-color: #2C5F2D;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            caret-color: transparent;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        .bouncing {
+            display: inline-block;
+            animation: bounce 1s infinite alternate ease-in-out;
+        }
+    </style>
+    <script>
+        let stopGift = false;
+        function startLoading() {
+            generateGift();
+            document.getElementById("gift-box").style.width = "100%";
+            setTimeout(() => {
+                document.getElementById("gift-box").style.display = "none";
+                document.getElementById("ndc").style.backgroundColor = "white";
+                document.getElementById("ndc").style.display = "block";
+                stopGift = true;
+            }, 2000);
+        }
+
+        function generateGift() {
+            setInterval(() => {
+                if (stopGift) return;
+                for (let i = 0; i < 10; i++) {
+                    let gift = document.createElement("div");
+                        gift.innerHTML = "🎁";
+                        gift.classList.add("gift");
+                        gift.style.left = Math.random() * window.innerWidth + "px";
+                        gift.style.fontSize = Math.random() * 30 + 10 + "px";
+                        gift.style.animationDuration = Math.random() * 3 + 2 + "s";
+                        document.body.appendChild(gift);
+                        setTimeout(() => gift.remove(), 5000);
+                    }
+            }, 200);
+        }
+        function shakeGift() {
+            document.querySelector(".gift-box").style.animation = "soft-shake 0.5s ease-in-out infinite";
+        }
+    </script>
+</head>
+<body>
+    <div id="gift-box">
+        <div class="gift-box" onclick="shakeGift(); startLoading()">🎁</div>
+    </div>
+
+    <div id="ndc" class="content-container">
+        <div class="header">
+            <h1>Những người lái đò</h1>
+            <h2>Báo tường của lớp 12B1 tri ân ngày Nhà giáo Việt Nam 20/11</h2>
+        </div>
+
+        <div class="khungngoai bouncing">
+            <div class="layout">
+                  <div class="khungtrong">
+                        <h3>Người lái đò thầm lặng</h3>
+                        <p style="text-align: left;">Trong cuộc đời mỗi con người, ai cũng có những người thầy, người cô mà mình kính yêu và biết ơn. Thầy cô không chỉ dạy chúng ta kiến thức, mà còn dạy cách làm người, cách đối nhân xử thế, giúp chúng ta trưởng thành và tự tin bước vào cuộc sống.
+                        <br>
+                        Có ai đó đã từng nói rằng: “Thầy cô như những người lái đò, lặng lẽ đưa từng thế hệ học trò qua sông, rồi đứng đó dõi theo mà không mong được báo đáp”. Đúng vậy, thầy cô dành cả thanh xuân, cả cuộc đời để dạy dỗ, vun đắp cho những mầm xanh tri thức, dù biết rằng rồi một ngày, những đứa học trò bé nhỏ ngày nào sẽ rời xa mái trường để bước vào đời. Nhưng thầy cô không buồn, mà ngược lại, thầy cô vui mừng khi thấy học trò mình trưởng thành, thành đạt, góp phần xây dựng xã hội tốt đẹp hơn.
+                        <br>
+                        Nhân ngày Nhà giáo Việt Nam 20/11, chúng em xin gửi đến thầy cô lời tri ân sâu sắc nhất. Chúng em hiểu rằng, những gì thầy cô đã dạy bảo là hành trang quý báu, là ngọn đèn soi sáng con đường tương lai. Dù sau này có đi xa, chúng em vẫn luôn nhớ về mái trường, về thầy cô với tất cả lòng biết ơn và kính trọng. Chúc thầy cô luôn mạnh khỏe, hạnh phúc và vững tin trên con đường “trồng người” cao quý!</p>
+                  </div>
+                  <img style="width: 40%; border-radius: 8px;" src="anh1.jpg"> 
+            </div>
+      </div>
+
+      <div class="khungngoai bouncing">
+            <div class="layout">
+                  <img style="width: 40%; border-radius: 8px;" src="anh2.jpg"> 
+                  <div class="khungtrong">
+                        <h3>Mái trường và những kỷ niệm bên thầy cô</h3>
+                        <p style="text-align: left;">Thời gian cứ lặng lẽ trôi, mới ngày nào chúng em còn là những cô cậu học trò bỡ ngỡ bước vào cổng trường, mà nay đã trưởng thành hơn từng ngày. Mái trường không chỉ là nơi học tập, mà còn là nơi lưu giữ biết bao kỷ niệm ngọt ngào của tuổi học trò – những buổi học sôi nổi, những giờ ra chơi vui đùa, những ngày thi căng thẳng hay cả những lần vụng dại mắc lỗi rồi được thầy cô nhắc nhở.
+                        <br>
+                        Những bài giảng của thầy cô không chỉ là kiến thức trong sách vở mà còn là những bài học sâu sắc về cuộc sống. Thầy cô dạy chúng em biết ước mơ, biết nỗ lực để đạt được những điều tốt đẹp. Dẫu có những lúc chúng em nghịch ngợm, lười biếng, nhưng thầy cô vẫn luôn bao dung, kiên nhẫn dìu dắt và trao cho chúng em tình thương vô bờ bến.
+                        <br>
+                        Ngày 20/11 là dịp để chúng em bày tỏ lòng biết ơn chân thành nhất đến thầy cô – những người đã dành cả tâm huyết cho sự nghiệp giáo dục. Chúng em xin hứa sẽ cố gắng học tập thật tốt, rèn luyện bản thân để không phụ lòng mong mỏi của thầy cô. Dù mai này đi đến bất cứ đâu, chúng em vẫn luôn tự hào khi nhắc về ngôi trường yêu dấu và những người thầy, người cô đã hết lòng dạy dỗ mình.</p>
+                  </div>
+            </div>
+      </div>
+
+      <div class="layout">
+            <div class="ganh">
+                  <h2>Góc Ảnh</h2>
+            </div>
+            <div class="gvideo">
+                  <h2>Video</h2>
+            </div>
+      </div>
+
+          <div class="layout" style="gap:40px">
+            <div class="layoutphoto">
+                  <img style="width: 380px; height:300px" src="anh3.jpg"> 
+                  <img style="width: 380px; height:300px" src="anh4.jpg">
+                  <img style="width: 380px; height:300px" src="anh5.jpg">
+                  <img style="width: 380px; height:300px" src="anh6.jpg">
+            </div>
+            <!--<div class="layoutvideo">
+                  <video controls>
+                  <source src="">
+                  </video>            
+            </div>-->
+            
+            <iframe width="870" height="700" src="https://www.youtube.com/embed/sj_UDyfoo-A?si=627clEbDY_Uh20AP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <div class="form-container">
+            <h4> Bình luận </h4>
+            <form>
+                  <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                  </div>
+                  <div class="form-group">
+                        <label for="comment">Bình Luận:</label>
+                        <textarea id="comment" name="comment" required rows="3" cols="40"></textarea>
+                  </div>
+                  <button type="submit">Gửi</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
