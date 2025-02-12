@@ -1,0 +1,245 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chắp Cánh Ước Mơ</title>
+    <style>
+        .gift-box {
+            text-align: center;
+            font-size: 550px;
+        }
+        h1 {
+            color: red;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        .khungngoai {
+            border: groove; /*kiểu đường viền*/
+            padding: 50px; /*khoảng cách của văn bản tới cạnh*/
+            margin-bottom: 30px; /*lề dưới của 2 khung*/
+            background-color: #CAE5E8;
+            border-radius: 10px;
+            width: 93%;
+            margin: 20px auto;
+        }
+        .khungtrong {
+            border: groove; /*kiểu đường viền*/
+            padding: 10px; /*khoảng cách của văn bản tới cạnh*/
+            margin-bottom: 10px; /*lề dưới của 2 khung*/
+            width:60%;
+            background-color: white;
+            font-size: 25px;
+            border-radius: 10px;
+        }
+        .content-border {
+            border: groove; 
+            padding: 10px; 
+            margin-bottom: 10px;
+            border-color: white;
+        }
+        .content-container {
+            display: none;
+            text-align: center;
+        }
+        .layout { 
+            display: flex; 
+            gap: 80px; 
+        }
+        .ganh, .gvideo, .layoutphoto, .layoutvideo { 
+            width: 50%; 
+        }
+        .layoutphoto { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 10px; 
+        }
+        .layoutphoto img { 
+            width: 100%; 
+            border-radius: 8px; 
+        }
+        .gift { 
+            position: absolute; 
+            color: red; top: -50px; 
+            animation: fall linear forwards; 
+            z-index: 1; 
+        }
+        .form-container {
+            margin: 5px auto;
+            padding: 3px 9px 9px 5px;
+            background-color: #e0f7fa;
+            border: groove;
+        }
+        .form-group {
+            display: flex;
+            align-items: flex-end; /*căn dưới*/
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 1px 3px;
+            background-color: #ccc;
+            display: block;
+        }
+        button:hover {
+            background-color: #bbb;
+        }
+        @keyframes fall { 
+            0% { opacity: 1; } 
+            100% { transform: translateY(100vh); opacity: 0; } 
+        }
+        @keyframes soft-shake { 
+            0%, 100% { transform: rotate(0deg); } 
+            25% { transform: rotate(-5deg); } 
+            50% { transform: rotate(5deg); } 
+            75% { transform: rotate(-3deg); } 
+        }
+        .header {
+            background-color: #FEF889;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        @keyframes rainbow-text {
+            0% { color: red; }
+            14% { color: orange; }
+            28% { color: yellow; }
+            42% { color: green; }
+            57% { color: blue; }
+            71% { color: indigo; }
+            85% { color: violet; }
+            100% { color: red; }
+        }
+        .rainbow-text {
+            animation: rainbow-text 10s infinite linear;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        .bouncing {
+            display: inline-block;
+            animation: bounce 1s infinite alternate ease-in-out;
+        }
+    </style>
+    <script>
+        let stopGift = false;
+        function startLoading() {
+            generateGift();
+            document.getElementById("gift-box").style.width = "100%";
+            setTimeout(() => {
+                document.getElementById("gift-box").style.display = "none";
+                document.getElementById("ndc").style.backgroundColor = "white";
+                document.getElementById("ndc").style.display = "block";
+                stopGift = true;
+            }, 2000);
+        }
+
+        function generateGift() {
+            setInterval(() => {
+                if (stopGift) return;
+                for (let i = 0; i < 10; i++) {
+                    let gift = document.createElement("div");
+                        gift.innerHTML = "🎁";
+                        gift.classList.add("gift");
+                        gift.style.left = Math.random() * window.innerWidth + "px";
+                        gift.style.fontSize = Math.random() * 30 + 10 + "px";
+                        gift.style.animationDuration = Math.random() * 3 + 2 + "s";
+                        document.body.appendChild(gift);
+                        setTimeout(() => gift.remove(), 5000);
+                    }
+            }, 200);
+        }
+        function shakeGift() {
+            document.querySelector(".gift-box").style.animation = "soft-shake 0.5s ease-in-out infinite";
+        }
+    </script>
+</head>
+<body>
+    <div id="gift-box">
+        <div class="gift-box" onclick="shakeGift(); startLoading()">🎁</div>
+    </div>
+
+    <div id="ndc" class="content-container">
+        <div class="header">
+            <h1 class="rainbow-text">Chắp cánh ước mơ</h1>
+            <h2 class="rainbow-text">Báo tường của lớp 12B1 kỉ niệm ngày ra trường</h2>
+        </div>
+
+        <div class="khungngoai bouncing">
+            <div class="layout">
+                  <div class="khungtrong">
+                        <h3>Cảm xúc ngày ra trường</h3>
+                        <p>Hôm nay là một ngày đặc biệt và đáng nhớ trong cuộc sống của mỗi học sinh chúng ta. Sau nhiều năm gắn bó, cống hiến và nỗ lực, đến cuối cùng chúng ta đã hoàn thành hành trình học tập cấp trung học. Trái tim đầy xúc động và hồi hộp, chúng ta đối mặt với một sự chia tay và sự chuyển giao sang một chương mới của cuộc đời.
+                        <br>
+                        Ngày ra trường lớp 12 gợi lên trong chúng ta một cảm xúc sự hoài niệm và nhớ nhung về những kỉ niệm đáng nhớ trong suốt thời gian học tập. Đó là những ngày tháng bên nhau, cùng nhau trải qua những giờ học, những dự án và các hoạt động ngoại khoá. Những kỉ niệm ấy sẽ mãi mãi ở trong lòng chúng ta và tạo nên những dấu ấn đáng nhớ trong cuộc đời.
+                        <br>
+                        Cuối cùng, ngày ra trường lớp 12 là sự khởi đầu của một chặng đường mới, một thời kì đầy thách thức và cơ hội. Chúng ta sẽ bước vào những môi trường đại học, những công việc và cuộc sống mới.</p>
+                  </div>
+                  <img style="width: 30%; border-radius: 8px;" src="anh1.jpg"> 
+            </div>
+      </div>
+
+      <div class="khungngoai bouncing">
+            <div class="layout">
+                  <img style="width: 30%; border-radius: 8px;" src="anh2.jpg"> 
+                  <div class="khungtrong">
+                        <h3>Cảm xúc ngày ra trường</h3>
+                        <p>Hôm nay là một ngày đặc biệt và đáng nhớ trong cuộc sống của mỗi học sinh chúng ta. Sau nhiều năm gắn bó, cống hiến và nỗ lực, đến cuối cùng chúng ta đã hoàn thành hành trình học tập cấp trung học. Trái tim đầy xúc động và hồi hộp, chúng ta đối mặt với một sự chia tay và sự chuyển giao sang một chương mới của cuộc đời.
+                        <br>
+                        Ngày ra trường lớp 12 gợi lên trong chúng ta một cảm xúc sự hoài niệm và nhớ nhung về những kỉ niệm đáng nhớ trong suốt thời gian học tập. Đó là những ngày tháng bên nhau, cùng nhau trải qua những giờ học, những dự án và các hoạt động ngoại khoá. Những kỉ niệm ấy sẽ mãi mãi ở trong lòng chúng ta và tạo nên những dấu ấn đáng nhớ trong cuộc đời.
+                        <br>
+                        Cuối cùng, ngày ra trường lớp 12 là sự khởi đầu của một chặng đường mới, một thời kì đầy thách thức và cơ hội. Chúng ta sẽ bước vào những môi trường đại học, những công việc và cuộc sống mới.</p>
+                  </div>
+            </div>
+      </div>
+
+      <div class="layout" style="gap:40px">
+            <div class="ganh">
+                  <h2>Góc Ảnh</h2>
+            </div>
+            <div class="gvideo">
+                  <h2>Video</h2>
+            </div>
+      </div>
+      <br><br>
+      <div class="layout" style="gap: 20px">
+            <div class="layoutphoto">
+                  <img style="width:370px; height:270px; object-fit: cover" src="anh3.jpg"> 
+                  <img style="width:370px; height:270px; object-fit: cover" src="anh4.jpg">
+                  <img style="width:370px; height:270px; object-fit: cover" src="anh5.jpg">
+                  <img style="width:370px; height:270px; object-fit: cover" src="anh6.jpg">
+            </div>
+            <!--<div class="layoutvideo">
+                  <video controls>
+                  <source src="">
+                  </video>            
+            </div>-->
+            
+            <iframe width="700" height="550" src="https://www.youtube.com/embed/sj_UDyfoo-A?si=627clEbDY_Uh20AP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <br><br>
+
+        <div class="form-container">
+            <h3> Bình luận </h3>
+            <form>
+                  <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                  </div>
+                  <div class="form-group">
+                        <label for="comment">Bình Luận:</label>
+                        <textarea id="comment" name="comment" required rows="3" cols="40"></textarea>
+                  </div>
+                  <button type="submit">Gửi</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
