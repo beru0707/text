@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ngày Nhà giáo Việt Nam 20/11</title>
     <style>
-        .gift-box {
+      .gift-box {
             text-align: center;
             font-size: 550px;
-        }
-        h1 {
+      }
+      h1 {
             color: #FFDD4A;font-family: Bookman; font-size: 60px;
-        }
-        h1, h2, h3 {
+      }
+            h1, h2, h3 {
             text-align: center;
-        }
-        h3 {
+      }
+      h3 {
             color: #4B7447; font-family: Bookman; font-size; 30px;
-        }
-        h2 {
+      }
+      h2 {
             font-size: 40px;
-        }
-        h4 {
+      }
+      h4 {
             color: white; font-family: Bookman;
-        }
-        .khungngoai {
+      }
+      .khungngoai {
             border: groove; /*kiểu đường viền*/
             padding: 50px; /*khoảng cách của văn bản tới cạnh*/
             margin-bottom: 30px; /*lề dưới của 2 khung*/
@@ -32,8 +32,8 @@
             border-radius: 10px;
             width: 93%;
             margin: 20px auto;
-        }
-        .khungtrong {
+      }
+      .khungtrong {
             border: groove; /*kiểu đường viền*/
             padding: 10px; /*khoảng cách của văn bản tới cạnh*/
             margin-bottom: 10px; /*lề dưới của 2 khung*/
@@ -41,93 +41,169 @@
             background-color: #F7F6E7;
             font-size: 25px;
             border-radius: 10px;
-        }
-        .content-border {
+      }
+      .content-border {
             border: groove; 
             padding: 10px; 
             margin-bottom: 10px;
             border-color: white;
-        }
-        .content-container {
+      }
+      .content-container {
             display: none;
             text-align: center;
-        }
-        .layout { 
+      }
+      .layout { 
             display: flex; 
             gap: 80px; 
-        }
-        .ganh, .gvideo, .layoutphoto, .layoutvideo { 
+      }
+      .ganh, .gvideo, .layoutphoto, .layoutvideo { 
             width: 50%; 
-        }
-        .layoutphoto { 
+      }
+      .layoutphoto { 
             display: grid; 
             grid-template-columns: repeat(2, 1fr); 
             gap: 10px; 
-        }
-        .layoutphoto img { 
+      }
+      .layoutphoto img { 
             width: 100%; 
             border-radius: 8px; 
-        }
-        .gift { 
+      }
+      .gift { 
             position: absolute; 
             color: red; top: -50px; 
             animation: fall linear forwards; 
             z-index: 1; 
-        }
-        .form-container {
+      }
+      .box {
+            position: relative; /* Giúp nút prev & next căn theo box */
+            width: 250px;
+            height: 250px;
+            transform-style: preserve-3d;
+            transition: 1.5s;
+            transform: perspective(1000px) rotateY(0deg);
+            margin: auto;
+            background-color: black;
+      }
+      .box-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+      }
+      .box span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            transform: rotateY(calc(var(--i)* 45deg)) translateZ(300px);
+            -webkit-box-reflect: below 0px linear-gradient(transparent,#0004);
+      }
+      .box span img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            user-select: none;
+      }
+      .btns {
+            position: absolute;
+            bottom: -70px; /* Điều chỉnh khoảng cách bên dưới box */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+      }     
+      .btns .btn {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+      }
+      .btns .btn:active {
+            background: black;
+      }
+      .btns .btn::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-top: 3px solid #fff;
+            border-right: 3px solid #fff;
+            transform: rotate(45deg) translate(-2.5px, 2.5px);
+      }
+      .btns .btn.prev::before {
+            transform: rotate(225deg) translate(-2.5px, 2.5px);
+      }
+      .btns .btn:active::before {
+            border-top: 3px solid #000;
+            border-right: 3px solid #000;
+      }
+      .form-container {
             margin: 5px auto;
             padding: 3px 9px 9px 5px;
             background-color: #486B00;
             border: groove;
-        }
-        .form-group {
+      }
+      .form-group {
             display: flex;
             align-items: flex-end; /*căn dưới*/
             margin-bottom: 10px;
-        }
-        button {
+      }
+      button {
             padding: 1px 3px;
             background-color: #ccc;
             display: block;
-        }
-        button:hover {
+      }
+      button:hover {
             background-color: #bbb;
-        }
-        @keyframes fall { 
+      }
+      @keyframes fall { 
             0% { opacity: 1; } 
             100% { transform: translateY(100vh); opacity: 0; } 
-        }
-        @keyframes soft-shake { 
+      }
+      @keyframes soft-shake { 
             0%, 100% { transform: rotate(0deg); } 
             25% { transform: rotate(-5deg); } 
             50% { transform: rotate(5deg); } 
             75% { transform: rotate(-3deg); } 
-        }
-        .header {
+      }
+      .header {
             background-color: #2C5F2D;
             color: white;
             padding: 20px;
             font-size: 24px;
             margin-bottom: 30px;
-        }
-        *{
+      }
+      *{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             caret-color: transparent;
-        }
-        @keyframes bounce {
+      }
+      @keyframes bounce {
             from { transform: translateY(0); }
             to { transform: translateY(-10px); }
-        }
-        .bouncing {
+      }
+      .bouncing {
             display: inline-block;
             animation: bounce 1s infinite alternate ease-in-out;
-        }
+      }
     </style>
     <script>
-        let stopGift = false;
-        function startLoading() {
+      let stopGift = false;
+      function startLoading() {
             generateGift();
             document.getElementById("gift-box").style.width = "100%";
             setTimeout(() => {
@@ -136,9 +212,9 @@
                 document.getElementById("ndc").style.display = "block";
                 stopGift = true;
             }, 2000);
-        }
+      }
 
-        function generateGift() {
+      function generateGift() {
             setInterval(() => {
                 if (stopGift) return;
                 for (let i = 0; i < 10; i++) {
@@ -152,10 +228,10 @@
                         setTimeout(() => gift.remove(), 5000);
                     }
             }, 200);
-        }
-        function shakeGift() {
+      }
+      function shakeGift() {
             document.querySelector(".gift-box").style.animation = "soft-shake 0.5s ease-in-out infinite";
-        }
+      }
     </script>
 </head>
 <body>
@@ -196,6 +272,45 @@
                   </div>
             </div>
       </div>
+      <br><br><br><br><br>
+      <div class="box-container">
+            <div class="box">
+                  <span style="--i:1;"><img src="image1.jpg" alt=""></span>
+                  <span style="--i:2;"><img src="image2.jpg" alt=""></span>
+                  <span style="--i:3;"><img src="image3.jpg" alt=""></span>
+                  <span style="--i:4;"><img src="image4.jpg" alt=""></span>
+                  <span style="--i:5;"><img src="image5.jpg" alt=""></span>
+                  <span style="--i:6;"><img src="image6.jpg" alt=""></span>
+                  <span style="--i:7;"><img src="image7.jpg" alt=""></span>
+                  <span style="--i:8;"><img src="image8.jpg" alt=""></span>
+            </div>
+
+            <br><br><br>
+
+            <div class="btns">
+                  <div class="btn prev"></div>
+                  <div class="btn next"></div>
+            </div>
+
+            <script>
+                  let prev = document.querySelector('.prev');
+                  let next = document.querySelector('.next');
+                  let box = document.querySelector('.box');
+
+                  let dagrees = 0;
+        
+                  prev.addEventListener('click', function(){
+                        dagrees += 45;
+                        box.style = `transform: perspective(1000px) rotateY(${dagrees}deg)`;
+                  })
+                  next.addEventListener('click', function(){
+                        dagrees -= 45;
+                        box.style = `transform: perspective(1000px) rotateY(${dagrees}deg)`;
+                  })
+            </script>
+      </div>
+
+      <br><br><br><br><br>
 
       <div class="layout">
             <div class="ganh">
